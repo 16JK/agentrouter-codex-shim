@@ -1,0 +1,23 @@
+# ~/.codex/config.toml 示例
+#
+# ChatGPT 桌面版与 Codex CLI 共用这个文件。
+# Windows: %USERPROFILE%\.codex\config.toml
+# macOS/Linux: ~/.codex/config.toml
+#
+# 改动后必须完全退出客户端再启动（只关窗口不生效）。
+
+model = "your-model-id"          # 换成你网关 /v1/models 里真实存在的模型 ID
+model_provider = "agentrouter"
+
+model_reasoning_effort = "medium"  # low / medium / high / xhigh / ultra，按模型支持情况选
+
+[model_providers.agentrouter]
+name = "AgentRouter"
+base_url = "http://127.0.0.1:18080/v1"   # 指向本地 shim，不要填网关地址
+wire_api = "responses"                    # 必须是 responses
+experimental_bearer_token = "sk-your-key" # 你的网关 key，会由 shim 原样转发
+requires_openai_auth = false
+
+# 如果不想把 key 明文写在这里，可改用环境变量：
+# env_key = "AGENTROUTER_API_KEY"
+# 注意：从桌面图标启动的应用可能读不到你在终端里 export 的变量。

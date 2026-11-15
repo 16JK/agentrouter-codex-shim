@@ -1,0 +1,28 @@
+{
+  "name": "agentrouter-codex-shim",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local Responses-API shim that fixes cross-resource HTTP 400 on pooled OpenAI gateways (AgentRouter) for the ChatGPT desktop app and Codex.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "install-shim": "node install.mjs",
+    "start": "node launch.mjs"
+  },
+  "dependencies": {
+    "agentrouter-responses-shim": "2.0.1",
+    "undici": "^7.0.0"
+  },
+  "keywords": [
+    "codex",
+    "chatgpt",
+    "agentrouter",
+    "openai",
+    "responses-api",
+    "proxy",
+    "shim"
+  ]
+}
